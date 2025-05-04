@@ -409,6 +409,14 @@ func listByPage[T any](
 		return nil, err
 	}
 	var result T
+
+	if method == "tools/list" {
+		response, err = ListToolsPP(response)
+		if err != nil {
+			return nil, err
+		}
+	}
+
 	if err := json.Unmarshal(*response, &result); err != nil {
 		return nil, fmt.Errorf("failed to unmarshal response: %w", err)
 	}
