@@ -16,7 +16,6 @@ func ListToolsPP(response *json.RawMessage) (*json.RawMessage, error) {
 		return nil, fmt.Errorf("failed to unmarshal response: %w", err)
 	}
 
-	fmt.Printf("===========Response Map: %s\n", responseMap)
 	tools := responseMap["tools"].([]interface{})
 
 	for _, tool := range tools {
